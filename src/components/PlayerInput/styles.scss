@@ -1,0 +1,35 @@
+@use "../../styles/colors";
+
+.playerInputContainer {
+  label {
+    font-weight: bold;
+  }
+
+  .playerInput {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    input {
+      width: 85%;
+      appearance: none;
+      border: none;
+      outline: none;
+      padding: 10px;
+      border-radius: 12px;
+      background-color: colors.$textColor;
+      color: colors.$backgroundColor;
+    }
+
+    .addKey {
+      background-color: darken(colors.$textColor, 30%);
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+      text-align: center;
+      width: 15%;
+      padding: 10px;
+      border-radius: 12px;
+    }
+  }
+}

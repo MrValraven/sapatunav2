@@ -1,0 +1,12 @@
+.players {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
+  .buttons {
+    display: flex;
+    margin-top: 25px;
+    gap: 10px;
+  }
+}
