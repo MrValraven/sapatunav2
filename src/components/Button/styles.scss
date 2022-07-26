@@ -59,16 +59,16 @@
   border-radius: 12px;
   background: linear-gradient(
     to left,
-    darken(colors.$secondaryColor, 10%) 0%,
-    darken(colors.$secondaryColor, 10%) 8%,
-    darken(colors.$secondaryColor, 10%) 92%,
-    darken(colors.$secondaryColor, 10%) 100%
+    darken(colors.$secondaryColor, 20%) 0%,
+    darken(colors.$secondaryColor, 20%) 8%,
+    darken(colors.$secondaryColor, 20%) 92%,
+    darken(colors.$secondaryColor, 20%) 100%
   );
 }
 .front {
   display: block;
   position: relative;
-  padding: 12px 42px;
+  padding: 12px 26px;
   border-radius: 12px;
   font-size: 1.25rem;
   color: white;

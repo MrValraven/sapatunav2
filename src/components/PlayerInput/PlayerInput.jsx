@@ -10,7 +10,7 @@ const PlayerInput = ({ addNewPlayer }) => {
         <input
           type="text"
           onKeyPress={(e) => {
-            if (e.value === "Enter") {
+            if (e.key === "Enter") {
               addNewPlayer(e.target.value);
               setInputValue("");
             }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-const Player = ({ id, name, sexuality, gender }) => {
+const Player = ({ id, name, sexuality, gender, removePlayer }) => {
   const updateGender = (e) => {
     console.log(e.target.value);
   };
@@ -9,10 +9,29 @@ const Player = ({ id, name, sexuality, gender }) => {
   const updateSexuality = (e) => {
     console.log(e.target.value);
   };
+
   return (
-    <li>
-      <span>{name}</span>
-      <select
+    <li className="player">
+      <div className="nome">
+        <p>
+          <span>Nome:&nbsp;</span>
+          {name}
+        </p>
+        <div className="deleteKey" onClick={() => removePlayer(id)}>
+          X
+        </div>
+      </div>
+      <div className="otherInfo">
+        <p>
+          <span>Sexualidade:&nbsp;</span>
+          {sexuality}
+        </p>
+        <p>
+          <span>Género:&nbsp;</span>
+          {gender}
+        </p>
+      </div>
+      {/* <select
         name="orientacaoSexual"
         id="orientacaoSexual"
         onChange={(e) => updateSexuality(e, id)}
@@ -34,8 +53,7 @@ const Player = ({ id, name, sexuality, gender }) => {
         <option value="man">Homem</option>
         <option value="woman">Mulher</option>
         <option value="nonBinary">Não-Binário</option>
-      </select>
-      <p>Uma cruzinha para remover um jogador</p>
+      </select> */}
     </li>
   );
 };
