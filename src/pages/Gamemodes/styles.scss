@@ -1,0 +1,46 @@
+@use '../../styles/colors';
+
+.gamemodes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px 15px;
+    max-height: 100vh;
+    gap: 25px;
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        h2 {
+            font-weight: 500;
+            font-size: 36px;
+        }
+
+        button {
+            appearance: none;
+            outline: none;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            border-radius: 12px;
+            height: 45px;
+            width: 45px;
+            background-color: colors.$textColor;
+            cursor: pointer;
+
+            &:disabled {
+                cursor: not-allowed;
+                filter: brightness(30%);
+               
+            }
+        }
+
+        img {
+            margin-top: 5px;
+            width: 40px;
+        }
+    }
+}

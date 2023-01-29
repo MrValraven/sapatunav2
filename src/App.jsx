@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { useEffect, useState } from "react";
 import Players from "./pages/Players/Players";
+import Gamemodes from "./pages/Gamemodes/Gamemodes";
 
 function App() {
   const [jogadores, setJogadores] = useState([]);
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/players" element={<Players />} />
+        <Route path="/gamemodes" element={<Gamemodes />} />
       </Routes>
     </div>
   );
