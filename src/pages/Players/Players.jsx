@@ -40,9 +40,13 @@ const Players = () => {
 
     setPlayers((previousValue) => [
       ...previousValue,
-      { id: uuid(), name: value, sexuality: "Heterosexual", gender: "Homem" },
+      { id: uuid(), name: value, sexuality: "Heterosexual", gender: "Man" },
     ]);
   };
+
+  useEffect(() => {
+    console.log(players);
+  }, [players]);
 
   return (
     <section className="players">
