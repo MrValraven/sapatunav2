@@ -44,25 +44,25 @@ const Players = () => {
     ]);
   };
 
-  useEffect(() => {
-    console.log(players);
-  }, [players]);
-
   return (
     <section className="players">
-      <h1>Lista de Jogadores</h1>
-      <ul>
-        {players.map((player) => (
-          <Player
-            removePlayer={removePlayer}
-            id={player.id}
-            key={player.id}
-            name={player.name}
-            sexuality={player.sexuality}
-            gender={player.gender}
-          />
-        ))}
-      </ul>
+      <div>
+        <h1>Player List</h1>
+        <ul>
+          {players.map((player) => (
+            <Player
+              removePlayer={removePlayer}
+              setPlayers={setPlayers}
+              players={players}
+              id={player.id}
+              key={player.id}
+              name={player.name}
+              sexuality={player.sexuality}
+              gender={player.gender}
+            />
+          ))}
+        </ul>
+      </div>
       <div className="playerInputs">
         <PlayerInput addNewPlayer={addNewPlayer} />
         <div className="buttons">

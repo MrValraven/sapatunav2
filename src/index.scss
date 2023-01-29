@@ -23,6 +23,17 @@ body {
   font-family: sans-serif;
 }
 
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: #f7f8fc;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 5px;
+}
+
 section {
   padding: 15px;
 }

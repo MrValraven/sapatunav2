@@ -5,7 +5,7 @@ const PlayerInput = ({ addNewPlayer }) => {
   const [inputValue, setInputValue] = useState("");
   return (
     <div className="playerInputContainer">
-      <label htmlFor="jogador">Adicionar um jogador</label>
+      <label htmlFor="jogador">Add a new player</label>
       <div className="playerInput">
         <input
           type="text"

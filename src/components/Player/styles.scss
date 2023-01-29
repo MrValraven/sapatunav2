@@ -13,7 +13,6 @@
   .nome {
     display: flex;
     justify-content: space-between;
-    margin-bottom: -15px;
 
     .deleteKey {
       margin-right: 5px;
@@ -35,6 +34,10 @@
     span {
       font-weight: bold;
     }
+  }
+
+  select {
+    width: 150px;
   }
 }
 

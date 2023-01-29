@@ -1,59 +1,81 @@
 import React from "react";
 import "./styles.scss";
 
-const Player = ({ id, name, sexuality, gender, removePlayer }) => {
+const Player = ({
+  id,
+  name,
+  sexuality,
+  gender,
+  players,
+  setPlayers,
+  removePlayer,
+}) => {
   const updateGender = (e) => {
-    console.log(e.target.value);
+    if (gender === e.target.value) return;
+
+    const currentPlayersIndex = players.findIndex((player) => (player.id = id));
+
+    players[currentPlayersIndex].gender = e.target.value;
+
+    setPlayers([...players]);
   };
 
   const updateSexuality = (e) => {
-    console.log(e.target.value);
+    if (sexuality === e.target.value) return;
+
+    const currentPlayersIndex = players.findIndex((player) => (player.id = id));
+
+    players[currentPlayersIndex].sexuality = e.target.value;
+
+    setPlayers([...players]);
   };
 
   return (
     <li className="player">
       <div className="nome">
         <p>
-          <span>Nome:&nbsp;</span>
+          <span>Name:&nbsp;</span>
           {name}
         </p>
         <div className="deleteKey" onClick={() => removePlayer(id)}>
           X
         </div>
       </div>
-      <div className="otherInfo">
+      <div className="sexuality">
         <p>
-          <span>Sexualidade:&nbsp;</span>
-          {sexuality}
-        </p>
-        <p>
-          <span>Género:&nbsp;</span>
-          {gender}
+          <span>Sexuality:&nbsp;</span>
+          <select
+            name="orientacaoSexual"
+            id="orientacaoSexual"
+            onChange={(e) => updateSexuality(e, id)}
+            value={sexuality}
+          >
+            <option value="queer">Asexual</option>
+            <option value="bisexual">Bisexual</option>
+            <option value="heterosexual">Heterosexual</option>
+            <option value="homosexual">Homosexual</option>
+            <option value="lesbian">Lesbian</option>
+            <option value="pansexual">Pansexual</option>
+            <option value="queer">Queer</option>
+          </select>
         </p>
       </div>
-      {/* <select
-        name="orientacaoSexual"
-        id="orientacaoSexual"
-        onChange={(e) => updateSexuality(e, id)}
-        value={sexuality}
-      >
-        <option value="bisexual">Bissexual</option>
-        <option value="heterosexual">Heterossexual</option>
-        <option value="homosexual">Homossexual</option>
-        <option value="lesbian">Lésbica</option>
-        <option value="pansexual">Pansexual</option>
-      </select>
-      <select
-        name="gender"
-        id="gender"
-        value={gender}
-        onChange={(e) => updateGender(e, id)}
-      >
-        <option>{gender}</option>
-        <option value="man">Homem</option>
-        <option value="woman">Mulher</option>
-        <option value="nonBinary">Não-Binário</option>
-      </select> */}
+      <div className="gender">
+        <p>
+          <span>Gender:&nbsp;</span>
+          <select
+            name="gender"
+            id="gender"
+            value={gender}
+            onChange={(e) => updateGender(e, id)}
+          >
+            <option value="Man">Man</option>
+            <option value="Woman">Woman</option>
+            <option value="Non-Binary (AMAB)">Non-binary (AMAB)</option>
+            <option value="Non-Binary (AFAB)">Non-binary (AFAB)</option>
+          </select>
+        </p>
+      </div>
     </li>
   );
 };
