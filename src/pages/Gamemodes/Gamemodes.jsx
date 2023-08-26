@@ -12,9 +12,15 @@ import Gamemode from "../../components/Gamemode/Gamemode";
 import Button from "../../components/Button/Button";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Gamemodes = () => {
   const [currentGamemodeIndex, setCurrentGamemodeIndex] = useState(0);
+  const navigate = useNavigate();
+
+  const startGame = () => {
+    navigate(`/${gamemodes[currentGamemodeIndex].tag}/questions`);
+  };
 
   const changeGamemode = (action) => {
     if (action === "increment") {
@@ -34,6 +40,7 @@ const Gamemodes = () => {
       name: "Platonic fun",
       image: FunImage,
       description: "Playful and exciting truth-asking and dare-taking.",
+      tag: "fun",
     },
     {
       id: 1,
@@ -41,6 +48,7 @@ const Gamemodes = () => {
       image: SoftImage,
       description:
         "Amusing truth or dare with a flirty twist for friendship fun.",
+      tag: "flirty",
     },
     {
       id: 2,
@@ -48,6 +56,7 @@ const Gamemodes = () => {
       image: HotImage,
       description:
         "A series of challenges for those who are looking to spice things up.",
+      tag: "spicy",
     },
     {
       id: 3,
@@ -55,6 +64,7 @@ const Gamemodes = () => {
       image: HardImage,
       description:
         "It's getting HOT in here, time to leave all inhibitions at the door.",
+      tag: "hot",
     },
   ];
   return (
@@ -84,6 +94,7 @@ const Gamemodes = () => {
       />
       <Button
         buttonText={`Play ${gamemodes[currentGamemodeIndex].name} mode`}
+        onClick={startGame}
       />
     </section>
   );

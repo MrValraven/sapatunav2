@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Button from "../../components/Button/Button";
 import ButtonSecondary from "../../components/ButtonSecondary/ButtonSecondary";
 import Player from "../../components/Player/Player";
@@ -6,10 +6,11 @@ import PlayerInput from "../../components/PlayerInput/PlayerInput";
 import { v4 as uuid } from "uuid";
 import { useNavigate } from "react-router-dom";
 import "./styles.scss";
+import usePlayers from "../../hooks/usePlayers";
 
 const Players = () => {
   const navigate = useNavigate();
-  const [players, setPlayers] = useState([]);
+  const { players, setPlayers } = usePlayers();
 
   const startGame = () => {
     if (players.length <= 0) {
@@ -40,13 +41,19 @@ const Players = () => {
 
     setPlayers((previousValue) => [
       ...previousValue,
-      { id: uuid(), name: value, sexuality: "Heterosexual", gender: "Man" },
+      { id: uuid(), name: value, sexuality: "Bisexual", gender: "Woman" },
     ]);
   };
 
   useEffect(() => {
-    console.log(players);
+    if (players.length > 0) {
+      localStorage.setItem("players", JSON.stringify(players));
+    }
   }, [players]);
+
+  useEffect(() => {
+    console.log("players", players)
+  }, []);
 
   return (
     <section className="players">

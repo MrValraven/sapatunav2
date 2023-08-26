@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.scss";
+import usePlayers from "../../hooks/usePlayers";
 
 const Player = ({
   id,
@@ -14,9 +15,6 @@ const Player = ({
     if (gender === e.target.value) return;
 
     const currentPlayersIndex = players.findIndex((player) => player.id === id);
-
-    console.log(currentPlayersIndex);
-    console.log("uuid: ", id);
 
     players[currentPlayersIndex].gender = e.target.value;
 
@@ -54,8 +52,8 @@ const Player = ({
             value={sexuality}
           >
             <option value="asexual">Asexual</option>
-            <option value="bisexual">Bisexual</option>
-            <option defaultValue="heterosexual">Heterosexual</option>
+            <option defaultValue="bisexual">Bisexual</option>
+            <option value="heterosexual">Heterosexual</option>
             <option value="homosexual">Homosexual</option>
             <option value="lesbian">Lesbian</option>
             <option value="pansexual">Pansexual</option>
@@ -72,8 +70,8 @@ const Player = ({
             value={gender}
             onChange={(e) => updateGender(e)}
           >
-            <option defaultValue="Man">Man</option>
-            <option value="Woman">Woman</option>
+            <option value="Man">Man</option>
+            <option defaultValue="Woman">Woman</option>
             <option value="Non-Binary (AMAB)">Non-binary (AMAB)</option>
             <option value="Non-Binary (AFAB)">Non-binary (AFAB)</option>
           </select>
