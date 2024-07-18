@@ -10,6 +10,8 @@ const Questions = () => {
   const [currentPlayers, setCurrentPlayers] = useState(players)
   const [dares, setDares] = useState([]);
   const [truths, setTruths] = useState([]);
+  const [currentChallenge, setCurrentChallenge] = useState("")
+  const [currentChallengeMode, setCurrentChallengeMode] = useState("")
   const [currentPlayer, setCurrentPlayer] = useState({
     name: "",
     id: "",
@@ -19,32 +21,43 @@ const Questions = () => {
   const { mode } = useParams();
 
   const selectedRandomPlayer = (playersArr) => {
-    console.log(playersArr, ' being passed')
-    const randomIndex = Math.abs(playersArr.length * Math.random());
-    console.log('player being returned', playersArr[randomIndex]);
+    const randomIndex = Math.floor(playersArr.length * Math.random());
     return playersArr[randomIndex];
   }
 
+  const getRandomIndex = (array) => {
+    return Math.floor(array.length * Math.random());
+  }
+
+  const handleClick = (challengeType) => {
+    console.log('handleClick', challengeType)
+    if (challengeType === 'truth') {
+      setCurrentChallenge(truths[getRandomIndex(truths)]);
+      setCurrentChallengeMode('truth')
+    }
+
+    setCurrentChallenge(dares[getRandomIndex(dares)]);
+    setCurrentChallengeMode('dare')
+  }
+
   useEffect(() => {
-    setDares(daresFile[mode]);
-    setTruths(truthsFile[mode]);
+    setDares(daresFile[mode.trim()]);
+    setTruths(truthsFile[mode.trim()]);
+    setCurrentPlayer(selectedRandomPlayer(players));
   }, []);
-
-  useEffect(() => {
-    setCurrentPlayer(selectedRandomPlayer(currentPlayers));
-    console.log('players changed')
-  }, [currentPlayers])
-
 
   return (
     <section className="questions">
-      <div>Truth</div>
-      <div>{currentPlayer?.name || 'Random'}</div>
-      <div>Dare</div>
-      {players.map(player =>
-        <div key={player.id}>
-          {player.name}
-        </div>)}
+      <div className="modes">
+        <div onClick={() => handleClick('truth')}>Truth</div>
+        <div>{currentPlayer?.name || 'Random'}</div>
+        <div onClick={() => handleClick('dare')}>Dare</div>
+      </div>
+      <div className="currentChallenge">
+        <span>{ } / {currentChallengeMode === 'truth' ? truths.length : dares.length}</span>
+        <p>Current: {currentChallenge}</p>
+      </div>
+
     </section>
   );
 }
