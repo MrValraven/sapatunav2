@@ -4,7 +4,6 @@ import "./styles.scss";
 import ChevronLeft from "../../assets/chevron-left.svg";
 import ChevronRight from "../../assets/chevron-right.svg";
 
-import FunImage from "../../assets/fun.png";
 import SoftImage from "../../assets/soft.png";
 import HotImage from "../../assets/hot.png";
 import HardImage from "../../assets/hard.png";
@@ -37,13 +36,6 @@ const Gamemodes = () => {
   const gamemodes = [
     {
       id: 0,
-      name: "Platonic fun",
-      image: FunImage,
-      description: "Playful and exciting truth-asking and dare-taking.",
-      tag: "fun",
-    },
-    {
-      id: 1,
       name: "Flirty Queerness",
       image: SoftImage,
       description:
@@ -51,7 +43,7 @@ const Gamemodes = () => {
       tag: "flirty",
     },
     {
-      id: 2,
+      id: 1,
       name: "Spicy Gathering",
       image: HotImage,
       description:
@@ -59,7 +51,7 @@ const Gamemodes = () => {
       tag: "spicy",
     },
     {
-      id: 3,
+      id: 2,
       name: "Hot Conundrum",
       image: HardImage,
       description:
