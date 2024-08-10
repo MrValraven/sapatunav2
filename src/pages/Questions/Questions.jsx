@@ -33,11 +33,12 @@ const Questions = () => {
     console.log('handleClick', challengeType)
     if (challengeType === 'truth') {
       setCurrentChallenge(truths[getRandomIndex(truths)]);
-      setCurrentChallengeMode('truth')
+      setCurrentChallengeMode('truth');
+      return;
     }
 
     setCurrentChallenge(dares[getRandomIndex(dares)]);
-    setCurrentChallengeMode('dare')
+    setCurrentChallengeMode('dare');
   }
 
   useEffect(() => {
