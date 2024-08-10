@@ -49,9 +49,9 @@ const Questions = () => {
   return (
     <section className="questions">
       <div className="modes">
-        <div onClick={() => handleClick('truth')}>Truth</div>
+        <div className="modeButton" onClick={() => handleClick('truth')}>Truth</div>
         <div>{currentPlayer?.name || 'Random'}</div>
-        <div onClick={() => handleClick('dare')}>Dare</div>
+        <div className="modeButton" onClick={() => handleClick('dare')}>Dare</div>
       </div>
       <div className="currentChallenge">
         <span>{ } / {currentChallengeMode === 'truth' ? truths.length : dares.length}</span>
