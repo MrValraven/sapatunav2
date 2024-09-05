@@ -25,6 +25,12 @@ const Questions = () => {
     return playersArr[randomIndex];
   }
 
+  const chooseCompatiblePlayer = (currentPlayer) => {
+    const playersArrayWithoutCurrentPlayer = players.filter((currentPlayerObj) => currentPlayerObj.id !== currentPlayer.id);
+
+    return playersArrayWithoutCurrentPlayer;
+  }
+
   const getRandomIndex = (array) => {
     return Math.floor(array.length * Math.random());
   }
