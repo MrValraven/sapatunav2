@@ -21,6 +21,7 @@ const Gamemodes = () => {
     navigate(`/${gamemodes[currentGamemodeIndex].tag}/questions`);
   };
 
+
   const changeGamemode = (action) => {
     if (action === "increment") {
       if (currentGamemodeIndex >= gamemodes.length - 1) return;
