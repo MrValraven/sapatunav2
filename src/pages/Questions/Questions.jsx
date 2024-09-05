@@ -39,11 +39,12 @@ const Questions = () => {
     console.log('handleClick', challengeType)
     if (challengeType === 'truth') {
       setCurrentChallenge(truths[getRandomIndex(truths)]);
-      setCurrentChallengeMode('truth')
+      setCurrentChallengeMode('truth');
+      return;
     }
 
     setCurrentChallenge(dares[getRandomIndex(dares)]);
-    setCurrentChallengeMode('dare')
+    setCurrentChallengeMode('dare');
   }
 
   useEffect(() => {
@@ -55,9 +56,9 @@ const Questions = () => {
   return (
     <section className="questions">
       <div className="modes">
-        <div onClick={() => handleClick('truth')}>Truth</div>
+        <div className="modeButton" onClick={() => handleClick('truth')}>Truth</div>
         <div>{currentPlayer?.name || 'Random'}</div>
-        <div onClick={() => handleClick('dare')}>Dare</div>
+        <div className="modeButton" onClick={() => handleClick('dare')}>Dare</div>
       </div>
       <div className="currentChallenge">
         <span>{ } / {currentChallengeMode === 'truth' ? truths.length : dares.length}</span>
