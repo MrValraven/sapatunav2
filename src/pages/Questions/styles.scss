@@ -1,5 +1,54 @@
 .modeButton {
-  padding:30px;
+  padding: 30px;
   background-color: orange;
   color: black;
- } 
+  text-align: center;
+  font-size: 24px;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 500px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.truthBtn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid orange;
+}
+
+.modes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  gap: 25px;
+}
+
+.currentChallenge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  gap: 20px;
+  text-align: center;
+
+  h1 {
+    text-transform: capitalize;
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  button {
+    width: 100%;
+    padding: 15px;
+    max-width: 500px;
+  }
+}
